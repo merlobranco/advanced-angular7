@@ -16,7 +16,7 @@ export class ShopComponent {
   }
 
   showName() {
-    console.log('Park name:' + this.parkName);
+    console.log(this.parkName);
   }
 
   seeParkData(event) {

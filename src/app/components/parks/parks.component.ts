@@ -1,11 +1,11 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges, OnInit, DoCheck, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-parks',
   templateUrl: './parks.component.html',
   styleUrls: ['./parks.component.css']
 })
-export class ParksComponent {
+export class ParksComponent implements OnChanges, OnInit, DoCheck, OnDestroy {
   @Input()
   public name: string;
   @Input('totalArea')
@@ -21,6 +21,23 @@ export class ParksComponent {
     this.area = 450;
     this.vegetation = 'Dense';
     this.open = false;
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    console.log('ngOnChanges executed');
+    console.log(changes);
+  }
+
+  ngOnInit() {
+    console.log('ngOnInit executed');
+  }
+
+  ngDoCheck() {
+    console.log('ngDoCheck executed');
+  }
+
+  ngOnDestroy() {
+    console.log('ngOnDestroy executed');
   }
 
   emitMyEvent() {
