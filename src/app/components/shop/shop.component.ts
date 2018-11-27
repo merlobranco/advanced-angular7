@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-shop',
@@ -7,8 +7,20 @@ import { Component } from '@angular/core';
 })
 export class ShopComponent {
   public title;
+  @Input()
+  public parkName: string;
+  public myPark;
 
   constructor() {
     this.title = 'This is the shop';
+  }
+
+  showName() {
+    console.log('Park name:' + this.parkName);
+  }
+
+  seeParkData(event) {
+    console.log(event);
+    this.myPark = event;
   }
 }

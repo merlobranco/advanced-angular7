@@ -1,5 +1,38 @@
+Father
 <h1>{{title}}</h1>
 <ul>
 	<li>Pink T-shirt</li>
 	<li>Black hat</li>
 </ul>
+
+<hr/>
+
+<p>
+	Park name: 
+	<input type="text" [(ngModel)]="parkName" (keyup)="showName()" />
+</p>
+<p>
+	Result: {{parkName}}
+</p>
+
+<div *ngIf="myPark">
+	<h4>MyPark data from the the son</h4>
+	<ol>
+		<li>{{myPark.name}}</li>
+		<li>{{myPark.area}}</li>
+		<li>{{myPark.vegetation}}</li>
+		<li>
+			<span *ngIf="myPark.vegetation == true">Open</span>
+			<span *ngIf="myPark.vegetation != true">Closed</span>
+		</li>
+	</ol>
+</div>
+
+<hr/>
+
+<p *ngIf="parkName">
+	Son:
+	<app-parks [name]="parkName" 
+			   [totalArea]="765"
+			   (sendMeData)="seeParkData($event)"></app-parks>
+</p>
