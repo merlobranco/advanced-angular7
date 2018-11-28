@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+.jumbotron {
+	padding: 40px;
+	-webkit-border-radius: 10px;
+	        border-radius: 10px;
+	    
+	-webkit-box-shadow: 2px 2px 1px #ccc;
+	        box-shadow: 2px 2px 1px #ccc;
+}
+
+.nav-item.active {
+	border-bottom: 3px solid orange;
+}

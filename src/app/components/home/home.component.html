@@ -1,1 +1,11 @@
-<h1>{{title}}</h1>
+<div class="col-lg-8 col-lg-offset-2">
+	<div class="jumbotron">
+		<h1>{{ title }}</h1>
+		<p>Enjoy the company of the exotic animals of our Zoo :)</p>
+		<p>
+			<a class="btn btn-primary btn-lg mr-3" role="button" [routerLink]="['/animals']">See animals</a>
+			<a class="btn btn-success btn-lg mr-3" role="button" [routerLink]="['/keepers']">Meet our keepers</a>
+			<a class="btn btn-warning btn-lg" role="button" [routerLink]="['/contact']">Contact us</a>
+		</p>
+	</div>
+</div>
