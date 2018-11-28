@@ -2,8 +2,7 @@ import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges, OnIni
 
 @Component({
   selector: 'app-parks',
-  templateUrl: './parks.component.html',
-  styleUrls: ['./parks.component.css']
+  templateUrl: './parks.component.html'
 })
 export class ParksComponent implements OnChanges, OnInit, DoCheck, OnDestroy {
   @Input()
