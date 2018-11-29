@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { routing, appRoutingProviders } from './app.routing';
+import { EditorModule } from '@tinymce/tinymce-angular';
 
 // Components
 import { AppComponent } from './app.component';
@@ -28,7 +29,8 @@ import { AnimalsComponent } from './components/animals/animals.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    routing
+    routing,
+    EditorModule
   ],
   providers: [
     appRoutingProviders
