@@ -9,7 +9,6 @@ import { KeepersComponent } from './components/keepers/keepers.component';
 import { AnimalsComponent } from './components/animals/animals.component';
 
 const appRoutes: Routes = [
-  // {path: '', component: HomeComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
   {path: 'contact', component: ContactComponent},

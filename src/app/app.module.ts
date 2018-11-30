@@ -5,6 +5,10 @@ import { HttpModule } from '@angular/http';
 import { routing, appRoutingProviders } from './app.routing';
 import { EditorModule } from '@tinymce/tinymce-angular';
 
+// Custom Modules
+import { EmailModule } from './email-module/email.module';
+import { AdminModule } from './admin-module/admin.module';
+
 // Components
 import { AppComponent } from './app.component';
 import { ShopComponent } from './components/shop/shop.component';
@@ -30,7 +34,9 @@ import { AnimalsComponent } from './components/animals/animals.component';
     FormsModule,
     HttpModule,
     routing,
-    EditorModule
+    EditorModule,
+    EmailModule,
+    AdminModule
   ],
   providers: [
     appRoutingProviders
