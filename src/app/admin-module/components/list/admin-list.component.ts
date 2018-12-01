@@ -6,4 +6,6 @@ import { Component } from '@angular/core';
 })
 export class AdminListComponent {
   title = 'Listing';
+  // public numbers = [0, 1, 2, 3, 4, 5];
+  public numbers = new Array(25);
 }

@@ -8,6 +8,6 @@
 	        box-shadow: 2px 2px 1px #ccc;
 }
 
-.nav-item.active {
+#navbarNav .nav-item.active {
 	border-bottom: 3px solid orange;
 }

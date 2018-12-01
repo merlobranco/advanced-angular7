@@ -1,2 +1,13 @@
-<h3>{{ title }}</h3>
-<router-outlet></router-outlet>
+<div class="row">
+	<div class="col-lg-4">
+		<h3>{{ title }}</h3>
+		<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+  			<a class="nav-link" [routerLinkActive]="['active']" id="v-pills-list-tab" data-toggle="pill" [routerLink]="['list']" role="tab">List</a>
+  			<a class="nav-link" [routerLinkActive]="['active']" id="v-pills-create-tab" data-toggle="pill" [routerLink]="['add']" role="tab">Create</a>
+  			<a class="nav-link" [routerLinkActive]="['active']" id="v-pills-information-tab" data-toggle="pill" [routerLink]="['edit']" role="tab">Information</a>
+		</div>
+	</div>
+	<div class="col-lg-8">
+		<router-outlet></router-outlet>	
+	</div>
+</div>
