@@ -1,53 +1,68 @@
-<h4>Using JQuery inside Angular4</h4>
-<button id="buttonjq">Show text</button>
-<p id="textjq" class="alert alert-warning">
-	Hello guys here I am
-</p>
+<div class="col-lg-12" [@fadeIn]>
+	<a class="active_button btn btn-success" 
+		[@mark]="status" (click)="changeStatus(status)">
+		<span *ngIf="status == 'inactive'">Activate button</span>
+		<span *ngIf="status == 'active'">Inactivate button</span>
+	</a>
 
-<div id="box" style="border: 1px solid black; width: 150px; height: 50px;">
-	Hello guys here I am, trying to live the adventure of my life.
-	Hope you're trying too.
+	<hr/>
+	<h4>CSS3 Animations</h4>
+	<a class="button_transitions">Transitions</a>
+	<div class="clearfix"></div>
+	<br/>
+	<div class="animated_box"></div>
+
+	<h4>Using JQuery inside Angular4</h4>
+	<button id="buttonjq">Show text</button>
+	<p id="textjq" class="alert alert-warning">
+		Hello guys here I am
+	</p>
+
+	<div id="box" style="border: 1px solid black; width: 150px; height: 50px;">
+		Hello guys here I am, trying to live the adventure of my life.
+		Hope you're trying too.
+	</div>
+
+	<editor apiKey="test" [id]="shopDetails" (onKeyUp)="richTextEditor($event)" [init]="{plugins: 'link, paste, table'}"></editor>
+
+	<hr/>
+	Father:
+	<h1>{{title}}</h1>
+	<ul>
+		<li>Pink T-shirt</li>
+		<li>Black hat</li>
+	</ul>
+
+	<hr/>
+
+	<p>
+		Park name: 
+		<input type="text" [(ngModel)]="parkName" (keyup)="showName()" />
+	</p>
+	<p>
+		Result: {{parkName}}
+	</p>
+
+	<div *ngIf="myPark">
+		<h4>MyPark data from the the son</h4>
+		<ol>
+			<li>{{myPark.name}}</li>
+			<li>{{myPark.area}}</li>
+			<li>{{myPark.vegetation}}</li>
+			<li>
+				<span *ngIf="myPark.vegetation == true">Open</span>
+				<span *ngIf="myPark.vegetation != true">Closed</span>
+			</li>
+		</ol>
+	</div>
+
+	<hr/>
+
+	<p *ngIf="parkName">
+		Son:
+		<app-parks [name]="parkName" 
+				   [totalArea]="765"
+				   (sendMeData)="seeParkData($event)">
+		</app-parks>
+	</p>
 </div>
-
-<editor apiKey="test" [id]="shopDetails" (onKeyUp)="richTextEditor($event)" [init]="{plugins: 'link, paste, table'}"></editor>
-
-<hr/>
-Father:
-<h1>{{title}}</h1>
-<ul>
-	<li>Pink T-shirt</li>
-	<li>Black hat</li>
-</ul>
-
-<hr/>
-
-<p>
-	Park name: 
-	<input type="text" [(ngModel)]="parkName" (keyup)="showName()" />
-</p>
-<p>
-	Result: {{parkName}}
-</p>
-
-<div *ngIf="myPark">
-	<h4>MyPark data from the the son</h4>
-	<ol>
-		<li>{{myPark.name}}</li>
-		<li>{{myPark.area}}</li>
-		<li>{{myPark.vegetation}}</li>
-		<li>
-			<span *ngIf="myPark.vegetation == true">Open</span>
-			<span *ngIf="myPark.vegetation != true">Closed</span>
-		</li>
-	</ol>
-</div>
-
-<hr/>
-
-<p *ngIf="parkName">
-	Son:
-	<app-parks [name]="parkName" 
-			   [totalArea]="765"
-			   (sendMeData)="seeParkData($event)">
-	</app-parks>
-</p>
