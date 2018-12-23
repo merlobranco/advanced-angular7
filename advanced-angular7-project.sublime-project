@@ -3,6 +3,9 @@
 	[
 		{
 			"path": "."
+		},
+		{
+			"path": "C:\\wamp\\www\\advanced-angular7-backend"
 		}
 	]
 }
