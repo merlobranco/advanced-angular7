@@ -18,6 +18,8 @@ import { HomeComponent } from './components/home/home.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { KeepersComponent } from './components/keepers/keepers.component';
 import { AnimalsComponent } from './components/animals/animals.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { AnimalsComponent } from './components/animals/animals.component';
     HomeComponent,
     ContactComponent,
     KeepersComponent,
-    AnimalsComponent
+    AnimalsComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
