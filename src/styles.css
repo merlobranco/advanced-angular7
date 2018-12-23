@@ -9,7 +9,7 @@
 }
 
 #navbarNav .nav-item.active {
-	border-bottom: 3px solid orange !important;
+	border-bottom: 3px solid orange;
 }
 
 /* For avoiding changes in the menu size*/
