@@ -1,10 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+//import { HttpModule } from '@angular/http';
 import { routing, appRoutingProviders } from './app.routing';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 // Custom Modules
 import { EmailModule } from './email-module/email.module';
@@ -37,12 +38,13 @@ import { LoginComponent } from './components/login/login.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
+//    HttpModule,
     routing,
     EditorModule,
     EmailModule,
     AdminModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [
     appRoutingProviders

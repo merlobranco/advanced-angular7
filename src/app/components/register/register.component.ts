@@ -14,6 +14,7 @@ export class RegisterComponent implements OnInit {
 
   public title: String;
   public user: User;
+  public status: String;
 
   constructor(
     private _route: ActivatedRoute,
@@ -26,11 +27,24 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     console.log('register.component loaded !!!');
-    console.log(this._userService.register());
   }
 
-  onSubmit() {
-    console.log(this.user);
+  onSubmit(registerForm) {
+    this._userService.create(this.user).subscribe(
+      response => {
+        console.log(response);
+        if (response.user && response.user._id) {
+          this.status = 'success';
+          this.user = new User('', '', '', '', '', 'ROLE_USER', '');
+          registerForm.reset();
+        } else {
+          this.status = 'error';
+        }
+      },
+      error => {
+        console.log(<any>error);
+      }
+    );
   }
 
 }

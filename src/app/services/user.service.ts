@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, Headers } from '@angular/http';
-import { map } from 'rxjs/operators';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { GLOBAL } from './global';
+import { User } from '../models/User';
 
 @Injectable({
   providedIn: 'root'
@@ -10,12 +10,13 @@ import { GLOBAL } from './global';
 
 export class UserService {
   public url: string;
+  private httpHeaders = new HttpHeaders({'Content-type': 'application/json'});
 
-  constructor(private _http: Http) {
+  constructor(public http: HttpClient) {
     this.url = GLOBAL.url;
   }
 
-  register() {
-    return 'Registering new user';
+  create(user: User): Observable<any> {
+    return this.http.post<User>(this.url + '/create', user, {headers: this.httpHeaders});
   }
 }
