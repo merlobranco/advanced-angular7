@@ -14,15 +14,16 @@ export class RegisterComponent implements OnInit {
 
   public title: String;
   public user: User;
-  public status: String;
+  public message: String;
 
   constructor(
     private _route: ActivatedRoute,
     private _router: Router,
     private _userService: UserService
   ) {
-     this.title = 'Sign in';
-     this.user = new User('', '', '', '', '', 'ROLE_USER', '');
+      this.title = 'Sign in';
+      this.user = new User('', '', '', '', '', 'ROLE_USER', '');
+      this.message = '';
   }
 
   ngOnInit() {
@@ -32,16 +33,16 @@ export class RegisterComponent implements OnInit {
   onSubmit(registerForm) {
     this._userService.create(this.user).subscribe(
       response => {
-        console.log(response);
         if (response.user && response.user._id) {
-          this.status = 'success';
           this.user = new User('', '', '', '', '', 'ROLE_USER', '');
           registerForm.reset();
+          this.message = 'created';
         } else {
-          this.status = 'error';
+          this.message = response.message;
         }
       },
       error => {
+        this.message = error.error.message;
         console.log(<any>error);
       }
     );

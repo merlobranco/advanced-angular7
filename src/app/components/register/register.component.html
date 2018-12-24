@@ -1,9 +1,9 @@
 <div class="col-lg-6">
 	<h1>{{ title }}</h1>
 
-	<div class="alert alert-success" *ngIf="status == 'success'">User created successfully!!! <a [routerLink]="['/login']">Login here</a></div>
+	<div class="alert alert-success" *ngIf="message == 'created'">User created successfully!!! <a [routerLink]="['/login']">Login here</a></div>
 
-	<div class="alert alert-danger" *ngIf="status == 'error'">User has not been created successfully </div>
+	<div class="alert alert-danger" *ngIf="message != '' && message != 'created'">{{ message }}</div>
 
 	<form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" class="col-lg-10">
 		<p>

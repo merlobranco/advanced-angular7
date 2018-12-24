@@ -1,6 +1,10 @@
 <div class="col-lg-6">
 	<h1>{{ title }}</h1>
 
+	<div class="alert alert-success" *ngIf="message == 'logged'">User logged successfully!!!</div>
+
+	<div class="alert alert-danger" *ngIf="message != '' && message != 'logged'">{{ message }}</div>
+
 	<form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" class="col-lg-10">
 		<p>
 			<label>Email</label>

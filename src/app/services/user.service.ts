@@ -19,4 +19,12 @@ export class UserService {
   create(user: User): Observable<any> {
     return this.http.post<User>(this.url + '/create', user, {headers: this.httpHeaders});
   }
+
+  login(user, gettoken = null): Observable<any> {
+    if (gettoken != null) {
+      user.gettoken = gettoken;
+    }
+
+    return this.http.post<any>(this.url + '/login', user, {headers: this.httpHeaders});
+  }
 }
