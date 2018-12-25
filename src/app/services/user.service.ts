@@ -30,6 +30,11 @@ export class UserService {
     return this.http.post<any>(this.url + '/login', user, {headers: this.httpHeaders});
   }
 
+  update(user): Observable<any> {
+    this.httpHeaders = new HttpHeaders({'Content-type': 'application/json', 'authorization': this.getToken()});
+    return this.http.put<any>(this.url + '/update/' + user._id, user, {headers: this.httpHeaders});
+  }
+
   getIdentity() {
     const identity = JSON.parse(localStorage.getItem('identity'));
     if (identity !== 'undefined') {
