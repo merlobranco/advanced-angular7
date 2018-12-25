@@ -9,6 +9,7 @@ import { KeepersComponent } from './components/keepers/keepers.component';
 import { AnimalsComponent } from './components/animals/animals.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
+import { AccountComponent } from './components/account/account.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -19,6 +20,7 @@ const appRoutes: Routes = [
   {path: 'shop', component: ShopComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'account', component: AccountComponent},
   {path: '**', component: HomeComponent} // When the route doesn't exist we will be redirected to Home page
 ];
 

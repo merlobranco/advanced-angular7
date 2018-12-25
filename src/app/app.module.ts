@@ -21,6 +21,7 @@ import { KeepersComponent } from './components/keepers/keepers.component';
 import { AnimalsComponent } from './components/animals/animals.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
+import { AccountComponent } from './components/account/account.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { LoginComponent } from './components/login/login.component';
     KeepersComponent,
     AnimalsComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,

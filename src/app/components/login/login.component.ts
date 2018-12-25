@@ -29,8 +29,6 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     console.log('login.component loaded !!!');
-    console.log('Identity: ' + this._userService.getIdentity());
-    console.log('Token: ' + this._userService.getToken());
   }
 
   onSubmit(loginForm) {
