@@ -15,6 +15,7 @@ export class AccountComponent implements OnInit {
   public user: User;
   public identity;
   public token;
+  public message: string;
 
   constructor(
     private _userService: UserService
@@ -23,10 +24,14 @@ export class AccountComponent implements OnInit {
     this.identity = this._userService.getIdentity();
     this.token = this._userService.getToken();
     this.user = this.identity;
+    this.message = '';
   }
 
   ngOnInit() {
     console.log('account.component loaded !!!');
+  }
+
+  onSubmit() {
   }
 
 }
