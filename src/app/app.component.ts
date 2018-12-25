@@ -1,4 +1,5 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from './services/user.service';
 
 @Component({
@@ -11,6 +12,7 @@ export class AppComponent implements OnInit, DoCheck {
   public identity;
 
   constructor(
+    private _router: Router,
     private _userService: UserService
   ) {
     this.title  = 'NGZOO';
@@ -21,7 +23,13 @@ export class AppComponent implements OnInit, DoCheck {
   }
 
   ngDoCheck() {
-    // For refreshing properly the Login, Checking Nav bar area after a login action
+    // For refreshing properly the Login, Check in Nav bar area after a login action
     this.identity = this._userService.getIdentity();
+  }
+
+  logout() {
+    localStorage.clear();
+    this.identity = null;
+    this._router.navigate(['/']);
   }
 }
