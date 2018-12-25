@@ -10,6 +10,8 @@ import { User } from '../models/User';
 
 export class UserService {
   public url: string;
+  public identity: User;
+  public token: string;
   private httpHeaders = new HttpHeaders({'Content-type': 'application/json'});
 
   constructor(public http: HttpClient) {
@@ -26,5 +28,25 @@ export class UserService {
     }
 
     return this.http.post<any>(this.url + '/login', user, {headers: this.httpHeaders});
+  }
+
+  getIdentity() {
+    const identity = JSON.parse(localStorage.getItem('identity'));
+    if (identity !== 'undefined') {
+      this.identity = identity;
+    } else {
+      this.identity = null;
+    }
+    return this.identity;
+  }
+
+  getToken() {
+    const token = localStorage.getItem('token');
+    if (token !== 'undefined') {
+      this.token = token;
+    } else {
+      this.identity = null;
+    }
+    return this.token;
   }
 }

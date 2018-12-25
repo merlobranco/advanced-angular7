@@ -12,10 +12,10 @@ import { UserService } from '../../services/user.service';
 })
 export class LoginComponent implements OnInit {
 
-  public title: String;
+  public title: string;
   public user: User;
-  public token: String;
-  public message: String;
+  public token: string;
+  public message: string;
 
   constructor(
     private _route: ActivatedRoute,
@@ -29,20 +29,39 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     console.log('login.component loaded !!!');
+    console.log('Identity: ' + this._userService.getIdentity());
+    console.log('Token: ' + this._userService.getToken());
   }
 
   onSubmit(loginForm) {
-    this._userService.login(this.user, true).subscribe(
+    // Getting the user data
+    this._userService.login(this.user).subscribe(
       response => {
-        if ((response.user && response.user._id) || response.token) {
-          this.user = new User('', '', '', '', '', '', '');
-          loginForm.reset();
-          this.message = 'logged';
+        if (response.user && response.user._id) {
+          response.user.password = '';
+          localStorage.setItem('identity', JSON.stringify(response.user));
+          
+          // Getting the token
+          this._userService.login(this.user, true).subscribe(
+            response => {
+              if (response.token.length > 0) {
+                this.user = new User('', '', '', '', '', '', '');
+                loginForm.reset();
+                this.message = 'logged';
+                this.token = response.token;
+                localStorage.setItem('token', this.token);
 
-          if (response.token) {
-            this.token = response.token;
-            console.log('token: ' + this.token);
-          }
+                // Redirecting to the home page
+                this._router.navigate(['/']);
+              } else {
+                this.message = response.message;
+              }
+            },
+            error => {
+              this.message = error.error.message;
+              console.log(<any>error);
+            }
+          );
         } else {
           this.message = response.message;
         }

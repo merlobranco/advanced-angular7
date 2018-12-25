@@ -12,9 +12,9 @@ import { UserService } from '../../services/user.service';
 })
 export class RegisterComponent implements OnInit {
 
-  public title: String;
+  public title: string;
   public user: User;
-  public message: String;
+  public message: string;
 
   constructor(
     private _route: ActivatedRoute,
