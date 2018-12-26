@@ -32,7 +32,27 @@
 	    -ms-transition: all 300ms;
 	     -o-transition: all 300ms;
 	        transition: all 300ms;
-	border-bottom: 3px solid orange;
+	color: white;
+	background-color: orange;
+	-webkit-border-radius: 10px;
+	        border-radius: 10px;
+}
+
+.account_image img {
+	width: 60px;
+}
+
+.avatar {
+	width: 35px;
+	height: 35px;
+	-webkit-border-radius: 100px;
+	        border-radius: 100px;
+	overflow: hidden;
+	margin-top: 3px;
+}
+
+.avatar img {
+	height: 35px;
 }
 
 .button_transitions {

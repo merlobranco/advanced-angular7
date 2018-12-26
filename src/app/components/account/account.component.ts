@@ -19,6 +19,7 @@ export class AccountComponent implements OnInit {
   public message: string;
   public filesToUpload: Array<File>;
   public url: string;
+  public avatarFile: string;
 
   constructor(
     private _router: Router,
@@ -31,6 +32,7 @@ export class AccountComponent implements OnInit {
     this.oldEmail = this.user.email;
     this.message = '';
     this.url = GLOBAL.url;
+    this.avatarFile = 'Uplodad your avatar';
   }
 
   ngOnInit() {
@@ -45,11 +47,13 @@ export class AccountComponent implements OnInit {
           localStorage.setItem('identity', JSON.stringify(response.user));
 
           // Upload image
+          if (this.filesToUpload.length > 0) {
           this._uploadService.makeFileRequest(this.url + '/upload-image/' + this.user._id, [], this.filesToUpload, this.token, 'image')
             .then((result: any) => {
               this.user.image = result.image;
               localStorage.setItem('identity', JSON.stringify(response.user));
             });
+          }
 
           if (this.oldEmail !== response.user.email) {
             this.logout();
@@ -70,7 +74,11 @@ export class AccountComponent implements OnInit {
 
   fileChangeEvent(fileInput: any) {
     this.filesToUpload = <Array<File>> fileInput.target.files;
-    console.log(this.filesToUpload);
+    if (this.filesToUpload.length > 0 && this.filesToUpload[0].name) {
+      this.avatarFile = this.filesToUpload[0].name;
+    } else {
+      this.avatarFile = 'Uplodad your avatar';
+    }
   }
 
   logout() {

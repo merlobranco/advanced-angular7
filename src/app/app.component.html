@@ -31,6 +31,9 @@
 	      		</li>
 	    	</ul>
 			<ul class="navbar-nav ml-auto" *ngIf="identity">
+				<li *ngIf="identity.image" class="avatar" >
+					<img src="{{ url + '/get-image-file/' + identity.image}}"/>
+				</li>
 				<li class="nav-item dropdown">
 			    	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ identity.name }}</a>
 			        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
