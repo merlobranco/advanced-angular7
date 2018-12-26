@@ -12,6 +12,12 @@ import { AdminListComponent } from './components/list/admin-list.component';
 import { AdminAddComponent } from './components/add/admin-add.component';
 import { AdminEditComponent } from './components/edit/admin-edit.component';
 
+// Services
+import { UserService } from '../services/user.service';
+
+// Guards
+import { AdminGuardService } from '../services/admin.guard.service';
+
 @NgModule({
   declarations: [
     AdminMainComponent,
@@ -31,6 +37,9 @@ import { AdminEditComponent } from './components/edit/admin-edit.component';
     AdminAddComponent,
     AdminEditComponent
   ],
-  providers: []
+  providers: [
+    UserService,
+    AdminGuardService
+  ]
 })
 export class AdminModule {}
