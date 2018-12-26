@@ -37,6 +37,8 @@
 				<li class="nav-item dropdown">
 			    	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ identity.name }}</a>
 			        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+			        	<a *ngIf="identity && identity.role == 'ROLE_ADMIN'" class="dropdown-item" [routerLink]="['/admin-panel']"><i class="fas fa-wrench"></i> Admin Panel</a>
+			        	<div *ngIf="identity && identity.role == 'ROLE_ADMIN'" class="dropdown-divider"></div>
 			         	<a class="dropdown-item" [routerLink]="['/account']"><i class="fas fa-user-cog"></i> Account</a>
 			         	<div class="dropdown-divider"></div>
 			        	<a class="dropdown-item pointer" (click)="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
