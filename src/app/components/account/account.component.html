@@ -21,6 +21,10 @@
 			<input type="text" name="email" #email="ngModel" [(ngModel)]="user.email" class="form-control" required />
 			<span *ngIf="!email.valid && email.touched">The Email field is not valid</span>
 		</p>
+		<p>
+			<label>Upload your avatar</label>
+			<input type="file" placeholder="Upload avatar" (change)="fileChangeEvent($event)">
+		</p>
 		
 		<input type="submit" value="Update" class="btn btn-primary" [disabled]="!accountForm.form.valid"/>
 	</form>

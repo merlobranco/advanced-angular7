@@ -3,12 +3,13 @@ import { Router } from '@angular/router';
 import { User } from '../../models/user';
 import { GLOBAL } from '../../services/GLOBAL';
 import { UserService } from '../../services/user.service';
+import { UploadService } from '../../services/upload.service';
 
 @Component({
   selector: 'app-account',
   templateUrl: './account.component.html',
   styleUrls: ['./account.component.css'],
-  providers: [UserService]
+  providers: [UserService, UploadService]
 })
 export class AccountComponent implements OnInit {
   public title: string;
@@ -16,15 +17,20 @@ export class AccountComponent implements OnInit {
   public oldEmail: string;
   public token;
   public message: string;
+  public filesToUpload: Array<File>;
+  public url: string;
 
   constructor(
     private _router: Router,
-    private _userService: UserService
+    private _userService: UserService,
+    private _uploadService: UploadService
   ) {
     this.title = 'Account';
     this.user = this._userService.getIdentity();
+    this.token = this._userService.getToken();
     this.oldEmail = this.user.email;
     this.message = '';
+    this.url = GLOBAL.url;
   }
 
   ngOnInit() {
@@ -38,8 +44,13 @@ export class AccountComponent implements OnInit {
           response.user.password = '';
           localStorage.setItem('identity', JSON.stringify(response.user));
 
-          console.log(this.oldEmail);
-          console.log(response.user.email);
+          // Upload image
+          this._uploadService.makeFileRequest(this.url + '/upload-image/' + this.user._id, [], this.filesToUpload, this.token, 'image')
+            .then((result: any) => {
+              this.user.image = result.image;
+              localStorage.setItem('identity', JSON.stringify(response.user));
+            });
+
           if (this.oldEmail !== response.user.email) {
             this.logout();
           } else {
@@ -55,6 +66,11 @@ export class AccountComponent implements OnInit {
         console.log(<any>error);
       }
     );
+  }
+
+  fileChangeEvent(fileInput: any) {
+    this.filesToUpload = <Array<File>> fileInput.target.files;
+    console.log(this.filesToUpload);
   }
 
   logout() {

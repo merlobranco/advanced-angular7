@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
         if (response.user && response.user._id) {
           response.user.password = '';
           localStorage.setItem('identity', JSON.stringify(response.user));
-          
+
           // Getting the token
           this._userService.login(this.user, true).subscribe(
             response => {
