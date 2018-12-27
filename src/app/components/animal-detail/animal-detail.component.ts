@@ -15,15 +15,20 @@ export class AnimalDetailComponent implements OnInit {
   public url: string;
 
   constructor(
-    private _activateRoute: ActivatedRoute,
+    private _activatedRoute: ActivatedRoute,
     private _router: Router,
     private _animalService: AnimalService
   ) {
     this.url = GLOBAL.url;
+    this.animal = new Animal('', '', '', '', '', '');
   }
 
   ngOnInit() {
-    this._activateRoute.params.subscribe(
+    this.getAnimal();
+  }
+
+  getAnimal() {
+    this._activatedRoute.params.subscribe(
       params => {
         const id = params['id'];
         if (id) {

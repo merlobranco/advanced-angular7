@@ -18,7 +18,7 @@ export class AnimalService {
 
   create(token, animal): Observable<any> {
     this.httpHeaders = new HttpHeaders({'Content-type': 'application/json', 'authorization': token});
-    return this.http.post<any>(this.url + '/animals/create', animal, {headers: this.httpHeaders});
+    return this.http.post<any>(this.url + '/animals', animal, {headers: this.httpHeaders});
   }
 
   getAnimals(): Observable<any> {
@@ -27,5 +27,10 @@ export class AnimalService {
 
   getAnimal(id): Observable<any> {
     return this.http.get<any>(this.url + '/animals/' + id);
+  }
+
+  update(token, animal): Observable<any> {
+    this.httpHeaders = new HttpHeaders({'Content-type': 'application/json', 'authorization': token});
+    return this.http.put<any>(this.url + '/animals/' + animal._id, animal, {headers: this.httpHeaders});
   }
 }
