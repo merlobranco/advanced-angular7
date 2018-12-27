@@ -31,7 +31,8 @@ export class AdminListComponent implements OnInit {
         if (response.animals) {
           this.animals = response.animals;
         } else {
-          this.animals = new Animal[];
+          this.animals = [];
+          this.message = '';
         }
       },
       error => {

@@ -1,0 +1,19 @@
+<div class="col-lg-10">
+	<div class="card">
+		<div class="row no-gutters">
+			<div class="col-auto">
+				<img class="img-fluid" src="{{ url + '/animals/get-image-file/' + animal.image}}" style="width:300px"/>
+			</div>
+			<div class="col">
+				<div class="card-body">
+				    <h5 class="card-title">{{ animal.name }}</h5>
+				    <p class="card-text">{{ animal.description }}</p>
+				</div>
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item">{{ animal.year }}</li>
+			    	<li class="list-group-item">{{ animal.user.name + ' ' + animal.user.surname }}</li>
+			  	</ul>
+		  	</div>
+	  	</div>
+	</div>
+</div>

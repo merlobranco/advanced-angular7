@@ -22,6 +22,7 @@ import { AnimalsComponent } from './components/animals/animals.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { AccountComponent } from './components/account/account.component';
+import { AnimalDetailComponent } from './components/animal-detail/animal-detail.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { AccountComponent } from './components/account/account.component';
     AnimalsComponent,
     RegisterComponent,
     LoginComponent,
-    AccountComponent
+    AccountComponent,
+    AnimalDetailComponent
   ],
   imports: [
     BrowserModule,

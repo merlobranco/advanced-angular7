@@ -7,6 +7,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { KeepersComponent } from './components/keepers/keepers.component';
 import { AnimalsComponent } from './components/animals/animals.component';
+import { AnimalDetailComponent } from './components/animal-detail/animal-detail.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { AccountComponent } from './components/account/account.component';
@@ -17,6 +18,7 @@ const appRoutes: Routes = [
   {path: 'contact', component: ContactComponent},
   {path: 'keepers', component: KeepersComponent},
   {path: 'animals', component: AnimalsComponent},
+  {path: 'animals/:id', component: AnimalDetailComponent},
   {path: 'shop', component: ShopComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},

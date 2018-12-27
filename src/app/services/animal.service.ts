@@ -22,6 +22,10 @@ export class AnimalService {
   }
 
   getAnimals(): Observable<any> {
-    return this.http.get<any>(this.url + '/animals', {headers: this.httpHeaders});
+    return this.http.get<any>(this.url + '/animals');
+  }
+
+  getAnimal(id): Observable<any> {
+    return this.http.get<any>(this.url + '/animals/' + id);
   }
 }
