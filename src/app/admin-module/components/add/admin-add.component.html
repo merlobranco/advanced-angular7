@@ -1,16 +1,32 @@
-<h3>{{ title }}</h3>
-<form>
-	<div class="form-group">
-	    <label for="name">Name</label>
-	    <input type="text" class="form-control" id="name">
-	</div>
-	<div class="form-group">
-	    <label for="description">Description</label>
-	    <textarea class="form-control" id="description" rows=4></textarea>
-	</div>
-	<div class="form-group">
-	    <label for="year">Year</label>
-	    <input type="text" class="form-control" id="year">
-	</div>
-	<button type="submit" class="btn btn-success">Submit</button>
-</form>
+<div class="col-lg-10">
+	<h3>{{ title }}</h3>
+
+	<div class="alert alert-success" *ngIf="message == 'created'">Animal created successfully!!!</div>
+
+	<div class="alert alert-danger" *ngIf="message != '' && message != 'created'">{{ message }}</div>
+
+	<form #formAdd="ngForm" (ngSubmit)="onSubmit(formAdd)">
+		<div class="form-group">
+		    <label>Name</label>
+		    <input type="text" name="name" #name="ngModel" [(ngModel)]="animal.name" class="form-control" required>
+		    <span *ngIf="!name.valid && name.touched">The Name field is required</span>
+		</div>
+		<div class="form-group">
+		    <label>Description</label>
+		    <textarea name="description" #description="ngModel" [(ngModel)]="animal.description" class="form-control" rows=4 required></textarea>
+		    <span *ngIf="!description.valid && description.touched">The Description field is required</span>
+		</div>
+		<div class="form-group">
+		    <label for="year">Year</label>
+		    <input type="text" name="year" #year="ngModel" [(ngModel)]="animal.year" class="form-control" required>
+		    <span *ngIf="!year.valid && year.touched">The Year field is required</span>
+		</div>
+
+		<div class="custom-file my-3">
+    		<input type="file" class="custom-file-input" id="inputAnimalFile" (change)="fileChangeEvent($event)"/>
+    		<label class="custom-file-label" for="inputAnimalFile" >{{ animalFile }}</label>
+  		</div>
+
+		<input type="submit" value="Create" class="btn btn-success" [disabled]="!formAdd.form.valid"/>
+	</form>
+</div>

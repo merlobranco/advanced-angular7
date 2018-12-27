@@ -16,10 +16,6 @@ export class AnimalService {
     this.url = GLOBAL.url;
   }
 
-  add(token, animal) {
-
-  }
-
   create(token, animal): Observable<any> {
     this.httpHeaders = new HttpHeaders({'Content-type': 'application/json', 'authorization': token});
     return this.http.post<any>(this.url + '/animals/create', animal, {headers: this.httpHeaders});

@@ -48,7 +48,7 @@ export class AccountComponent implements OnInit {
 
           // Upload image
           if (this.filesToUpload && this.filesToUpload.length > 0) {
-          this._uploadService.makeFileRequest(this.url + '/upload-image/' + this.user._id, [], this.filesToUpload, this.token, 'image')
+            this._uploadService.makeFileRequest(this.url + '/upload-image/' + this.user._id, [], this.filesToUpload, this.token, 'image')
             .then((result: any) => {
               this.user.image = result.image;
               localStorage.setItem('identity', JSON.stringify(response.user));
