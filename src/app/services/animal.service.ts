@@ -20,4 +20,8 @@ export class AnimalService {
     this.httpHeaders = new HttpHeaders({'Content-type': 'application/json', 'authorization': token});
     return this.http.post<any>(this.url + '/animals/create', animal, {headers: this.httpHeaders});
   }
+
+  getAnimals(): Observable<any> {
+    return this.http.get<any>(this.url + '/animals', {headers: this.httpHeaders});
+  }
 }
