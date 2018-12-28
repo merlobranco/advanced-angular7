@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-//import { HttpModule } from '@angular/http';
 import { routing, appRoutingProviders } from './app.routing';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -42,7 +41,6 @@ import { AnimalDetailComponent } from './components/animal-detail/animal-detail.
   imports: [
     BrowserModule,
     FormsModule,
-//    HttpModule,
     routing,
     EditorModule,
     EmailModule,

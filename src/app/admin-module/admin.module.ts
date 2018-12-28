@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AdminModuleRouting } from './admin.routing';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Components
 import { AdminMainComponent } from './components/main/admin-main.component';
@@ -33,7 +33,8 @@ import { SearchPipeService } from './pipes/search.pipe.service';
     CommonModule,
     FormsModule,
     HttpModule,
-    AdminModuleRouting
+    AdminModuleRouting,
+    BrowserAnimationsModule
   ],
   exports: [
     AdminMainComponent,

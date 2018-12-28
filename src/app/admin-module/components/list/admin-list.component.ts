@@ -5,13 +5,15 @@ import { AnimalService } from '../../../services/animal.service';
 import { UserService } from '../../../services/user.service';
 import { UploadService } from '../../../services/upload.service';
 import { Animal } from '../../../models/animal';
+import { fadeSide } from '../../animations';
 declare var jQuery: any;
 declare var $: any;
 
 @Component({
   selector: 'app-admin-list',
   templateUrl: './admin-list.component.html',
-  providers: [AnimalService, UserService]
+  providers: [AnimalService, UserService],
+  animations: [fadeSide]
 })
 export class AdminListComponent implements OnInit {
   public title: string;

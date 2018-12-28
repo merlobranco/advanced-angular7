@@ -5,11 +5,13 @@ import { AnimalService } from '../../../services/animal.service';
 import { UserService } from '../../../services/user.service';
 import { UploadService } from '../../../services/upload.service';
 import { Animal } from '../../../models/animal';
+import { fadeSide } from '../../animations';
 
 @Component({
   selector: 'app-admin-edit',
   templateUrl: './admin-edit.component.html',
-  providers: [AnimalService, UserService, UploadService]
+  providers: [AnimalService, UserService, UploadService],
+  animations: [fadeSide]
 })
 export class AdminEditComponent implements OnInit {
   public title: string;
