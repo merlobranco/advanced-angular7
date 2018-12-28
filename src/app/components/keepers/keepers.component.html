@@ -1,3 +1,17 @@
 <div class="col-lg-12" [@fadeIn]>
 	<h1>{{title}}</h1>
-</div>
+
+  <div class="alert alert-danger" *ngIf="message != ''">{{ message }}</div>
+
+  <div class="alert alert-warning" *ngIf="!(keepers?.length > 0)">There are no keepers registered</div>
+
+	<div class="card float-left m-3" style="width: 18rem;" *ngFor="let keeper of keepers">
+		<div class="keeper-image-mask">
+  			<img *ngIf="keeper.image" class="card-img-top" src="{{ url + '/get-image-file/' + keeper.image}}" alt="{{ keeper.name + ' ' + keeper.surname }}">
+			<img *ngIf="!keeper.image" class="card-img-top" src="https://via.placeholder.com/250" alt="{{ keeper.name + ' ' + keeper.surname }}">
+  		</div>
+  		<div class="card-body">
+    		<h5 class="card-title">{{ keeper.name + ' '+ keeper.surname }}</h5>
+  		</div>
+	</div>
+</div> 

@@ -1,22 +1,18 @@
 <div class="col-lg-12" [@fadeIn]>
 	<h1>{{title}}</h1>
 
+  <div class="alert alert-danger" *ngIf="message != ''">{{ message }}</div>
+
+  <div class="alert alert-warning" *ngIf="!(animals?.length > 0)">There are no animals registered</div>
+
 	<div class="card float-left m-3" style="width: 18rem;" *ngFor="let animal of animals">
 		<div class="animal-image-mask">
   			<img *ngIf="animal.image" class="card-img-top" src="{{ url + '/animals/get-image-file/' + animal.image}}" alt="{{ animal.name }}">
-			<img *ngIf="!animal.image" class="card-img-top" src="https://via.placeholder.com/300" alt="{{ animal.name }}">
+			<img *ngIf="!animal.image" class="card-img-top" src="https://via.placeholder.com/250" alt="{{ animal.name }}">
   		</div>
   		<div class="card-body">
     		<h5 class="card-title"><a [routerLink]="['/animals', animal._id]">{{ animal.name }}</a></h5>
     		<p class="card-text">{{ animal.description }}</p>
   		</div>
-  		<!--<ul class="list-group list-group-flush">
-			<li class="list-group-item">{{ animal.year }}</li>
-			<li class="list-group-item">{{ animal.user.name + ' ' + animal.user.surname }}</li>
-		</ul>-->
-  <!--<div class="card-body">
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>-->
 	</div>
 </div> 

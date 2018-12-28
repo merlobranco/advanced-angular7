@@ -54,4 +54,8 @@ export class UserService {
     }
     return this.token;
   }
+
+  getKeepers(): Observable<any> {
+    return this.http.get<any>(this.url + '/keepers');
+  }
 }
