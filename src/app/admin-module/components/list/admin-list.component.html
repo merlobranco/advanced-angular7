@@ -5,6 +5,16 @@
 	<div class="alert alert-danger" *ngIf="message != '' && !message.includes('deleted')">{{ message }}</div>
 
 	<div class="alert alert-warning" *ngIf="message == '' && !(animals && animals.length > 0)">There are no animals registered</div>
+	
+	<div class="row my-3">
+		<div class="col-lg-1 mx-3">Search:</div>
+		<div class="col-lg-3">
+			<input type="text" [(ngModel)]="searchFilter"/>
+		</div>
+		<div class="badge badge-success m-3" *ngIf="searchFilter">
+			<h6>Search filter: <strong>{{ searchFilter }}</strong></h6>
+		</div>
+	</div>
 
 	<table *ngIf="animals && animals.length > 0" class="table table-hover">
 		<thead class="thead-light">
@@ -15,7 +25,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr *ngFor="let animal of animals">
+			<tr *ngFor="let animal of animals | search: searchFilter">
 				<td>{{ animal.name }}</td>
 				<td>{{ animal.year }}</td>
 				<td>

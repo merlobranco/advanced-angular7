@@ -18,12 +18,16 @@ import { UserService } from '../services/user.service';
 // Guards
 import { AdminGuardService } from '../services/admin.guard.service';
 
+// Pipes
+import { SearchPipeService } from './pipes/search.pipe.service';
+
 @NgModule({
   declarations: [
     AdminMainComponent,
     AdminListComponent,
     AdminAddComponent,
-    AdminEditComponent
+    AdminEditComponent,
+    SearchPipeService
   ],
   imports: [
     CommonModule,
@@ -39,7 +43,7 @@ import { AdminGuardService } from '../services/admin.guard.service';
   ],
   providers: [
     UserService,
-    AdminGuardService
+    AdminGuardService,
   ]
 })
 export class AdminModule {}

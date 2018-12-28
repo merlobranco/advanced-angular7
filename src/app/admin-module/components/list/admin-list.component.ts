@@ -18,12 +18,13 @@ export class AdminListComponent implements OnInit {
   public animals: Animal[];
   public token;
   public message: string;
+  public searchFilter: string;
 
   constructor (
     private _route: ActivatedRoute,
     private _router: Router,
     private _userService: UserService,
-    private _animalService: AnimalService
+    private _animalService: AnimalService,
   ) {
     this.title = 'Animals';
     this.message = '';
