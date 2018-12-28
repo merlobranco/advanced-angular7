@@ -33,4 +33,14 @@ export class AnimalService {
     this.httpHeaders = new HttpHeaders({'Content-type': 'application/json', 'authorization': token});
     return this.http.put<any>(this.url + '/animals/' + animal._id, animal, {headers: this.httpHeaders});
   }
+
+  delete(token, id): Observable<any> {
+    this.httpHeaders = new HttpHeaders({'Content-type': 'application/json', 'authorization': token});
+    return this.http.delete<any>(this.url + '/animals/' + id, {headers: this.httpHeaders});
+  }
+
+  deleteImage(token, image): Observable<any> {
+    this.httpHeaders = new HttpHeaders({'Content-type': 'application/json', 'authorization': token});
+    return this.http.delete<any>(this.url + '/animals/image-file/' + image, {headers: this.httpHeaders});
+  }
 }
