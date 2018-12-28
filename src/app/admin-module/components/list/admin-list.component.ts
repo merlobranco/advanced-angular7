@@ -24,7 +24,7 @@ export class AdminListComponent implements OnInit {
     private _route: ActivatedRoute,
     private _router: Router,
     private _userService: UserService,
-    private _animalService: AnimalService,
+    private _animalService: AnimalService
   ) {
     this.title = 'Animals';
     this.message = '';
@@ -32,6 +32,10 @@ export class AdminListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getAnimals();
+  }
+
+  getAnimals() {
     this._animalService.getAnimals().subscribe(
       response => {
         if (response.animals) {
